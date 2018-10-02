@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context="glory.sicekatan.SuhuActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Kondisi Suhu Tubuh"
+        android:layout_marginTop="20dp"
+        android:id="@+id/txtJudul"
+        android:textSize="25sp"
+        android:textColor="@color/white_greyish"
+        style="@android:style/TextAppearance.Medium"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/txtJudul">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_suhu"
+                android:id="@+id/imgSuhu"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgSuhu"
+                android:layout_marginLeft="15dp"
+                android:text="37.2 C"
+                android:layout_marginTop="20dp"
+                android:id="@+id/txtCelcius"
+                android:textSize="45sp"
+                android:textColor="@color/white_greyish"
+                style="@android:style/TextAppearance.Medium"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_suhu"
+                android:id="@+id/imgSuhu2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgSuhu2"
+                android:layout_marginLeft="15dp"
+                android:text="98.7 F"
+                android:layout_marginTop="20dp"
+                android:id="@+id/txtFahrenheit"
+                android:textSize="45sp"
+                android:textColor="@color/white_greyish"
+                style="@android:style/TextAppearance.Medium"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

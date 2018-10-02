@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "727240689618",
+    "firebase_url": "https://si-cekatan.firebaseio.com",
+    "project_id": "si-cekatan",
+    "storage_bucket": "si-cekatan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727240689618:android:b4e704f642d816b5",
+        "android_client_info": {
+          "package_name": "glory.sicekatan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727240689618-n0m6cushib62hjf71al6bto7hvkkbqsn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "glory.sicekatan",
+            "certificate_hash": "ea6e4d451b776339d2b6ce82d3e7bf3bcf25299f"
+          }
+        },
+        {
+          "client_id": "727240689618-0i2nrtrrt6qd1tdnfsnbc92m4b8bmtgh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5vuz323qDL7Z2ykyebJO0w1oaQ7G3PPU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727240689618-0i2nrtrrt6qd1tdnfsnbc92m4b8bmtgh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
