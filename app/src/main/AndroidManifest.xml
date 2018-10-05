@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BerandaActivity"
             android:label="SI CeKatan"
@@ -65,8 +65,14 @@
         <activity
             android:name=".PemberitahuanActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ChatActivity"
-            android:label="Chat Ke Dokter"></activity>
+        <activity
+            android:name=".ChatActivity"
+            android:label="Konsultasi" />
+        <activity
+            android:name=".LoginDokter"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".BerandaDokterActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

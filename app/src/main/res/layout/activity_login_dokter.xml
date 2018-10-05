@@ -27,7 +27,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="SI CeKatan"
+                android:text="Login Dokter"
                 android:textColor="@color/white_greyish"
                 android:textSize="16dip" />
 
@@ -103,20 +103,12 @@
                 android:textStyle="bold" />
 
 
-            <TextView android:id="@+id/createAccount"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Belum ada akun? Daftar disini"
-                android:gravity="center"
-                android:textColor="@color/white_greyish"
-                android:textSize="16dip"/>
 
-            <TextView android:id="@+id/loginDokter"
+            <TextView android:id="@+id/loginPasien"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="Login Dokter"
+                android:text="Kembali ke login pasien"
                 android:gravity="center"
                 android:textColor="@color/white_greyish"
                 android:textSize="16dip"/>

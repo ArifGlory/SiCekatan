@@ -30,76 +30,68 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import glory.sicekatan.Kelas.SharedVariable;
+import glory.sicekatan.Kelas.UserPreference;
 import glory.sicekatan.Kelas.Utils;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginDokter extends AppCompatActivity {
 
-    Button loginBtn;
     Intent i;
     EditText emailid, password;
     Button loginButton;
-    TextView forgotPassword, signUp,loginDokter;
+    TextView forgotPassword, signUp,loginPasien;
     DatabaseReference ref;
     private FirebaseAuth fAuth;
     private FirebaseAuth.AuthStateListener fStateListener;
     ProgressBar progressBar;
     DialogInterface.OnClickListener listener;
     private String userID;
+    UserPreference mUserPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login_dokter);
+
         Firebase.setAndroidContext(this);
-        FirebaseApp.initializeApp(MainActivity.this);
+        FirebaseApp.initializeApp(LoginDokter.this);
         ref = FirebaseDatabase.getInstance().getReference();
         fAuth = FirebaseAuth.getInstance();
-
-        FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (fbUser!=null){
-            // User already signed in
-
-            // get the FCM token
-            String token = FirebaseInstanceId.getInstance().getToken();
-            // save the user info in the database to users/UID/
-            // we'll use the UID as part of the path
-           /* User user = new User(fbUser.getUid(), fbUser.getDisplayName(), token);
-            database.child("users").child(user.uid).setValue(user);*/
-
-            // go to intent activity
-            // Intent intent = new Intent(this, SplashActivity.class);
-            // startActivity(intent);
-        }
+        mUserPref = new UserPreference(this);
 
         emailid = (EditText) findViewById(R.id.login_emailid);
         signUp = (TextView) findViewById(R.id.createAccount);
         password = (EditText) findViewById(R.id.login_password);
         loginButton = (Button) findViewById(R.id.loginBtn);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        loginBtn = (Button) findViewById(R.id.loginBtn);
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        loginPasien = (TextView) findViewById(R.id.loginPasien);
+        loginPasien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkValidation();
+            }
+        });
+    }
 
-            }
-        });
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                i = new Intent(getApplicationContext(),RegisterActivity.class);
+    private void doLogin(final String email,String passwordUser){
+            String emailDokter = mUserPref.getEmailDokter();
+            String passDokter = mUserPref.getPassDokter();
+
+            if (email.equals(emailDokter) && passwordUser.equals(passDokter)){
+                SharedVariable.userID = "dokter";
+                SharedVariable.nama = "Dokter";
+                i = new Intent(getApplicationContext(),BerandaDokterActivity.class);
                 startActivity(i);
+            }else {
+                customToast("Email atau password anda salah");
+                hidupkanKomponen();
             }
-        });
-        loginDokter = (TextView) findViewById(R.id.loginDokter);
-        loginDokter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                i = new Intent(getApplicationContext(),LoginDokter.class);
-                startActivity(i);
-            }
-        });
     }
 
     private void checkValidation() {
@@ -122,34 +114,6 @@ public class MainActivity extends AppCompatActivity {
             doLogin(getEmailId, getPassword);
 
         }
-    }
-
-    private void doLogin(final String email,String passwordUser){
-        fAuth.signInWithEmailAndPassword(email,passwordUser).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                if (!task.isSuccessful()){
-                    hidupkanKomponen();
-                    customToast("Login Gagal, periksa kembali email dan password anda");
-                    //Toast.makeText(getApplicationContext(), "Login Gagal, periksa kembali email dan password anda", Toast.LENGTH_LONG).show();
-                }else{
-                    // Successfully signed in
-                    SharedVariable.nama = fAuth.getCurrentUser().getDisplayName();
-                    SharedVariable.userID = fAuth.getCurrentUser().getUid();
-                    // get the Firebase user
-                    FirebaseUser fbUser = FirebaseAuth.getInstance().getCurrentUser();
-
-                    // get the FCM token
-                    String token = FirebaseInstanceId.getInstance().getToken();
-                    i = new Intent(MainActivity.this,SplashActivity.class);
-                    startActivity(i);
-
-                }
-
-
-            }
-        });
     }
 
     private void matikanKomponen(){

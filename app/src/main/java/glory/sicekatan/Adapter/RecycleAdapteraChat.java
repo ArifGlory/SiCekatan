@@ -47,7 +47,7 @@ public class RecycleAdapteraChat extends RecyclerView.Adapter<RecycleViewHolderC
     private FirebaseAuth fAuth;
     private FirebaseAuth.AuthStateListener fStateListener;
 
-    String[] nama ={"Pesan 1","Pesan 2","Pesan 3"};
+    String[] nama ={"Halo Dokter","Saya ingin berkonsultasi.."};
 
     public RecycleAdapteraChat(final Context context) {
 
